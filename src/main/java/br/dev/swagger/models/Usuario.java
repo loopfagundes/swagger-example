@@ -1,0 +1,42 @@
+package br.dev.swagger.models;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+@Setter
+@Getter
+@Entity
+@Data
+@Table(name = "usuarios")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotBlank
+    @Column(name = "nome")
+    private String nome;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "Data de nascimento")
+    private LocalDate dataNascimento;
+
+    @Pattern(regexp = "^[0-9]{2}$")
+    @NotBlank(message = "CPF nao pode ser em branco.")
+    @Column(name = "cpf", unique = true)
+    private String cpf;
+
+    public int getIdade() {
+        return Period.between(this.dataNascimento, LocalDate.now()).getYears();
+    }
+}
