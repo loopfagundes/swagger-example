@@ -18,6 +18,6 @@ public class SwaggerConfig {
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
                         .description("See the README")
-                        .url("https://github.com/loopfagundes/swagger-example"));
+                        .url("https://github.com/loopfagundes/swagger-example/blob/openapi/README.md"));
     }
 }
