@@ -21,7 +21,7 @@ CTRL + C
 ```
 ---
 
-![](img/swa-op.png)
+![](src/main/resources/img/swa-op.png)
 
 #### See the document Springdoc: [Migrating from SpringFox](https://springdoc.org/migrating-from-springfox.html)
 
