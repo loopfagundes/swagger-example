@@ -21,13 +21,13 @@ CTRL + C
 ```
 ---
 
-### Swagger {...}
+![](img/swa-op.png)
 
 #### See the document Springdoc: [Migrating from SpringFox](https://springdoc.org/migrating-from-springfox.html)
 
 #### Document Swagger - OpenAPI `OAS 3.0`.
 
-- **URL SWAGGER-UI:** 
+- **URL SWAGGER-UI:**
 
 ```http://localhost:8080/swagger-ui/index.html```
 
