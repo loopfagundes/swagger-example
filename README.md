@@ -1,11 +1,11 @@
 ﻿## Spring Boot, H2 Database, CRUD and Swagger
 
-### 1. Maven Clean
+### 1. Maven Clean:
 ```bash
 mvn clean
 ```
 
-### 2. Maven Install
+### 2. Maven Install:
 ```bash
 mvn install
 ```
@@ -15,7 +15,7 @@ mvn install
 mvn spring-boot:run
 ```
 
-### 4. To stop the execution, just run the command in the terminal
+### 4. To stop the execution, just run the command in the terminal:
 ```bash
 CTRL + C 
 ```
@@ -32,7 +32,7 @@ CTRL + C
 ```http://localhost:8080/swagger-ui/index.html```
 
 `JSON`
-```
+```json
 {  
 "nome": "Swagger",  
 "dataNascimento": "dd/MM/yyyy",  
@@ -63,7 +63,7 @@ http://localhost:8080/api/tutorials
 - **raw**
 - **JSON**
 
-```
+```json
 {  
 "nome": "nome",  
 "dataNascimento": "dd/MM/yyyy",  
