@@ -1,6 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.models.Usuario;
+import br.dev.swagger.dto.Usuario;
 import br.dev.swagger.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> getAll() {
-        return usuarioService.getUserAll();
+        return usuarioService.allUsers();
     }
 
     @GetMapping("/{id}")
@@ -39,6 +39,7 @@ public class UsuarioController {
             u.setNome(usuario.getNome());
             u.setDataNascimento(usuario.getDataNascimento());
             u.setCpf(usuario.getCpf());
+//            u.setProdutos(usuario.getProdutos()); //PUT - RESPONSE STATUS: 500
             Usuario updated = usuarioService.save(u);
             return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());
@@ -47,7 +48,7 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteId(@PathVariable Long id) {
         return usuarioService.getIdUser(id).map(user -> {
-            usuarioService.deleteUserId(id);
+            usuarioService.deleteById(id);
             return ResponseEntity.noContent().build();
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }

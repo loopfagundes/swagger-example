@@ -1,6 +1,6 @@
 package br.dev.swagger.services;
 
-import br.dev.swagger.models.Usuario;
+import br.dev.swagger.dto.Usuario;
 import br.dev.swagger.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public List<Usuario> getUserAll() {
+    public List<Usuario> allUsers() {
         try {
             return usuarioRepository.findAll();
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void deleteUserId(Long id) {
+    public void deleteById(Long id) {
         try {
             usuarioRepository.deleteById(id);
         } catch (Exception e) {

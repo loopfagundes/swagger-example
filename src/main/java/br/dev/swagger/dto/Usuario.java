@@ -1,4 +1,4 @@
-package br.dev.swagger.models;
+package br.dev.swagger.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 @Setter
 @Getter
@@ -38,4 +39,7 @@ public class Usuario {
     public int getIdade() {
         return Period.between(this.dataNascimento, LocalDate.now()).getYears();
     }
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produto> produtos;
 }
