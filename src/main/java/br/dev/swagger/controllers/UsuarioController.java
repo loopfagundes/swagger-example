@@ -1,7 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.dto.Produto;
-import br.dev.swagger.dto.Usuario;
+import br.dev.swagger.entities.Usuario;
 import br.dev.swagger.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

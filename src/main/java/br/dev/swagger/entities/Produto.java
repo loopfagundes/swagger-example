@@ -1,4 +1,4 @@
-package br.dev.swagger.dto;
+package br.dev.swagger.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -18,13 +18,13 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "A marca nao pode ser em branco.")
-    @Column(name = "marca")
-    private String marca;
-
     @NotBlank(message = "O item nao pode ser em branco.")
     @Column(name = "item")
     private String item;
+
+    @NotBlank(message = "A marca nao pode ser em branco.")
+    @Column(name = "marca")
+    private String marca;
 
     @JsonBackReference
     @ManyToOne

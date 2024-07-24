@@ -1,4 +1,4 @@
-package br.dev.swagger.dto;
+package br.dev.swagger.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

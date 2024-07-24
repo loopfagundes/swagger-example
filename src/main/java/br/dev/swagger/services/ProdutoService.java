@@ -1,6 +1,6 @@
 package br.dev.swagger.services;
 
-import br.dev.swagger.dto.Produto;
+import br.dev.swagger.entities.Produto;
 import br.dev.swagger.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

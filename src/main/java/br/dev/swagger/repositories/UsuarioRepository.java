@@ -1,6 +1,6 @@
 package br.dev.swagger.repositories;
 
-import br.dev.swagger.dto.Usuario;
+import br.dev.swagger.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

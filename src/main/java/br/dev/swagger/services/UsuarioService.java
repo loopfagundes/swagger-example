@@ -1,6 +1,6 @@
 package br.dev.swagger.services;
 
-import br.dev.swagger.dto.Usuario;
+import br.dev.swagger.entities.Usuario;
 import br.dev.swagger.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

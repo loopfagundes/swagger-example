@@ -1,6 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.dto.Produto;
+import br.dev.swagger.entities.Produto;
 import br.dev.swagger.services.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +31,8 @@ public class ProdutoController {
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .map(p -> {
-                    p.setMarca(produto.getMarca());
                     p.setItem(produto.getItem());
+                    p.setMarca(produto.getMarca());
                     Produto updated = produtoService.save(p);
                     return ResponseEntity.ok(updated);
                 }).orElseGet(() -> ResponseEntity.notFound().build());
