@@ -1,6 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.models.Usuario;
+import br.dev.swagger.entities.Usuario;
 import br.dev.swagger.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
