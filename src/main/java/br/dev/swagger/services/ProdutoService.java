@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -17,6 +18,14 @@ public class ProdutoService {
     public List<Produto> allProducts() {
         try {
             return produtoRepository.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<Produto> getIdProduct(Long id) {
+        try {
+            return produtoRepository.findById(id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

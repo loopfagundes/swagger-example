@@ -1,5 +1,6 @@
 package br.dev.swagger.controllers;
 
+import br.dev.swagger.dto.Produto;
 import br.dev.swagger.dto.Usuario;
 import br.dev.swagger.services.UsuarioService;
 import jakarta.validation.Valid;
@@ -17,6 +18,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+//    private ProdutoController produtoController;
 
     @GetMapping
     public List<Usuario> getAll() {
@@ -39,7 +41,7 @@ public class UsuarioController {
             u.setNome(usuario.getNome());
             u.setDataNascimento(usuario.getDataNascimento());
             u.setCpf(usuario.getCpf());
-//            u.setProdutos(usuario.getProdutos()); //PUT - RESPONSE STATUS: 500
+//            u.setProdutos(usuario.getProdutos()); //Error 500
             Usuario updated = usuarioService.save(u);
             return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());

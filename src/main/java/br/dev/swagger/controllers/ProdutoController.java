@@ -27,10 +27,11 @@ public class ProdutoController {
 
     @PutMapping("{id}")
     public ResponseEntity<Produto> update(@PathVariable Long id, @Valid @RequestBody Produto produto) {
-        return produtoService.allProducts().stream()
+        return produtoService.getIdProduct(id).stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .map(p -> {
+                    p.setMarca(produto.getMarca());
                     p.setItem(produto.getItem());
                     Produto updated = produtoService.save(p);
                     return ResponseEntity.ok(updated);
