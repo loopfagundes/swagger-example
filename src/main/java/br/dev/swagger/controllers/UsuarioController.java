@@ -18,7 +18,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-//    private ProdutoController produtoController;
+    private ProdutoController produtoController;
 
     @GetMapping
     public List<Usuario> getAll() {
@@ -41,7 +41,7 @@ public class UsuarioController {
             u.setNome(usuario.getNome());
             u.setDataNascimento(usuario.getDataNascimento());
             u.setCpf(usuario.getCpf());
-//            u.setProdutos(usuario.getProdutos()); //Error 500
+            u.setProdutos(usuario.getProdutos()); //Error 500
             Usuario updated = usuarioService.save(u);
             return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());
