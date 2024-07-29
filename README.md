@@ -63,7 +63,8 @@ CTRL + C
 - **URL:**
 
 ``` 
-http://localhost:8080/api/tutorials
+http://localhost:8080/user
+http://localhost:8080/produtos
 ```
 - **PATCH:**
 ```bash 
@@ -79,14 +80,6 @@ http://localhost:8080/api/tutorials
 ### Body:
 - **raw**
 - **JSON**
-
-```json
-{  
-"nome": "nome",  
-"dataNascimento": "dd/MM/yyyy",  
-"cpf": "00"  
-}  
-```  
 
 ### HTTP Methods, CRUD and Status:
 :rocket: [What are Http methods?](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
