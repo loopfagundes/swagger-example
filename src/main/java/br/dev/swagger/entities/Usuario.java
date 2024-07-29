@@ -24,7 +24,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "Nome nao pode ser em branco.")
+    @NotBlank(message = "Nome é obrigatório")
     @Column(name = "nome")
     private String nome;
 
@@ -32,8 +32,8 @@ public class Usuario {
     @Column(name = "Data de nascimento")
     private LocalDate dataNascimento;
 
-    @Pattern(regexp = "^[0-9]{2}$")
-    @NotBlank(message = "CPF nao pode ser em branco.")
+    @Pattern(regexp = "^[0-9]{2}$", message = "CPF deve ter 2 digitos")
+    @NotBlank(message = "CPF é obrigatório")
     @Column(name = "cpf", unique = true)
     private String cpf;
 

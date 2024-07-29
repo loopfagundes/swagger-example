@@ -32,12 +32,29 @@ CTRL + C
 ```http://localhost:8080/swagger-ui/index.html```
 
 `JSON`
+
+#### Swagger:
 ```json
 {  
 "nome": "Swagger",  
 "dataNascimento": "dd/MM/yyyy",  
 "cpf": "01"
-} 
+}
+```
+#### OpenAPI:
+```json
+{  
+"nome": "name",  
+"dataNascimento": "dd/MM/yyyy",  
+"cpf": "01",  
+    "produtos": [
+        {
+            "quantidade": 10,
+            "item": "item",
+            "marca": "marca"
+        }
+    ]
+}
 ```
 ---
 

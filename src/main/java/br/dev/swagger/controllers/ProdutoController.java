@@ -31,6 +31,7 @@ public class ProdutoController {
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .map(p -> {
+                    p.setQuantidade(produto.getQuantidade());
                     p.setItem(produto.getItem());
                     p.setMarca(produto.getMarca());
                     Produto updated = produtoService.save(p);
