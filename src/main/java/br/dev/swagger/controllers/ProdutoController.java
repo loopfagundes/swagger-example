@@ -1,6 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.entities.Produto;
+import br.dev.swagger.entities.ProdutoEntity;
 import br.dev.swagger.services.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,25 +16,25 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @GetMapping
-    public List<Produto> allProducts() {
+    public List<ProdutoEntity> allProducts() {
         return produtoService.allProducts();
     }
 
     @PostMapping
-    public Produto create(@Valid @RequestBody Produto produto) {
-        return produtoService.save(produto);
+    public ProdutoEntity create(@Valid @RequestBody ProdutoEntity produtoEntity) {
+        return produtoService.save(produtoEntity);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Produto> update(@PathVariable Long id, @Valid @RequestBody Produto produto) {
+    public ResponseEntity<ProdutoEntity> update(@PathVariable Long id, @Valid @RequestBody ProdutoEntity produtoEntity) {
         return produtoService.getIdProduct(id).stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .map(p -> {
-                    p.setQuantidade(produto.getQuantidade());
-                    p.setItem(produto.getItem());
-                    p.setMarca(produto.getMarca());
-                    Produto updated = produtoService.save(p);
+                    p.setQuantidade(produtoEntity.getQuantidade());
+                    p.setItem(produtoEntity.getItem());
+                    p.setMarca(produtoEntity.getMarca());
+                    ProdutoEntity updated = produtoService.save(p);
                     return ResponseEntity.ok(updated);
                 }).orElseGet(() -> ResponseEntity.notFound().build());
     }

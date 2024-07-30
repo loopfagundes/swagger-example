@@ -1,6 +1,6 @@
 package br.dev.swagger.controllers;
 
-import br.dev.swagger.entities.Usuario;
+import br.dev.swagger.entities.UsuarioEntity;
 import br.dev.swagger.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,28 +20,28 @@ public class UsuarioController {
     private ProdutoController produtoController;
 
     @GetMapping
-    public List<Usuario> getAll() {
+    public List<UsuarioEntity> getAll() {
         return usuarioService.allUsers();
     }
 
     @GetMapping("/{id}")
-    public Optional<Usuario> getId(@PathVariable Long id) {
+    public Optional<UsuarioEntity> getId(@PathVariable Long id) {
         return usuarioService.getIdUser(id);
     }
 
     @PostMapping
-    public Usuario create(@Valid @RequestBody Usuario usuario) {
-        return usuarioService.save(usuario);
+    public UsuarioEntity create(@Valid @RequestBody UsuarioEntity usuarioEntity) {
+        return usuarioService.save(usuarioEntity);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> update(@PathVariable Long id, @Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<UsuarioEntity> update(@PathVariable Long id, @Valid @RequestBody UsuarioEntity usuarioEntity) {
         return usuarioService.getIdUser(id).map(u -> {
-            u.setNome(usuario.getNome());
-            u.setDataNascimento(usuario.getDataNascimento());
-            u.setCpf(usuario.getCpf());
-            u.setProdutos(usuario.getProdutos()); //Error 500
-            Usuario updated = usuarioService.save(u);
+            u.setNome(usuarioEntity.getNome());
+            u.setDataNascimento(usuarioEntity.getDataNascimento());
+            u.setCpf(usuarioEntity.getCpf());
+            u.setProdutoEntities(usuarioEntity.getProdutoEntities()); //Error 500
+            UsuarioEntity updated = usuarioService.save(u);
             return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }

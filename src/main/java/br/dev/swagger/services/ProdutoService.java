@@ -1,6 +1,6 @@
 package br.dev.swagger.services;
 
-import br.dev.swagger.entities.Produto;
+import br.dev.swagger.entities.ProdutoEntity;
 import br.dev.swagger.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public List<Produto> allProducts() {
+    public List<ProdutoEntity> allProducts() {
         try {
             return produtoRepository.findAll();
         } catch (Exception e) {
@@ -23,7 +23,7 @@ public class ProdutoService {
         }
     }
 
-    public Optional<Produto> getIdProduct(Long id) {
+    public Optional<ProdutoEntity> getIdProduct(Long id) {
         try {
             return produtoRepository.findById(id);
         } catch (Exception e) {
@@ -32,9 +32,9 @@ public class ProdutoService {
     }
 
     @Transactional
-    public Produto save(Produto produto) {
+    public ProdutoEntity save(ProdutoEntity produtoEntity) {
         try {
-            return produtoRepository.save(produto);
+            return produtoRepository.save(produtoEntity);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

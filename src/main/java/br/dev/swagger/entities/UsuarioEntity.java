@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "usuarios")
-public class Usuario {
+public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +43,5 @@ public class Usuario {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Produto> produtos;
+    private List<ProdutoEntity> produtoEntities;
 }
