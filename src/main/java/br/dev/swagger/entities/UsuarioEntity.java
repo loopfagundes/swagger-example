@@ -43,5 +43,5 @@ public class UsuarioEntity {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProdutoEntity> produtoEntities;
+    private List<ProdutoEntity> produtos;
 }

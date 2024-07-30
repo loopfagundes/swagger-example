@@ -34,9 +34,9 @@ public class UsuarioService {
     }
 
     @Transactional
-    public UsuarioEntity save(UsuarioEntity usuarioEntity) {
+    public UsuarioEntity save(UsuarioEntity usuario) {
         try {
-            return usuarioRepository.save(usuarioEntity);
+            return usuarioRepository.save(usuario);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

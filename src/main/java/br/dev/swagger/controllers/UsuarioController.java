@@ -30,17 +30,17 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public UsuarioEntity create(@Valid @RequestBody UsuarioEntity usuarioEntity) {
-        return usuarioService.save(usuarioEntity);
+    public UsuarioEntity create(@Valid @RequestBody UsuarioEntity usuario) {
+        return usuarioService.save(usuario);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioEntity> update(@PathVariable Long id, @Valid @RequestBody UsuarioEntity usuarioEntity) {
+    public ResponseEntity<UsuarioEntity> update(@PathVariable Long id, @Valid @RequestBody UsuarioEntity usuario) {
         return usuarioService.getIdUser(id).map(u -> {
-            u.setNome(usuarioEntity.getNome());
-            u.setDataNascimento(usuarioEntity.getDataNascimento());
-            u.setCpf(usuarioEntity.getCpf());
-            u.setProdutoEntities(usuarioEntity.getProdutoEntities()); //Error 500
+            u.setNome(usuario.getNome());
+            u.setDataNascimento(usuario.getDataNascimento());
+            u.setCpf(usuario.getCpf());
+            u.setProdutos(usuario.getProdutos()); //Error 500
             UsuarioEntity updated = usuarioService.save(u);
             return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());

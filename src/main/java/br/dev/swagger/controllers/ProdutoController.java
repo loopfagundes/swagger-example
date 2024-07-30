@@ -21,19 +21,19 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ProdutoEntity create(@Valid @RequestBody ProdutoEntity produtoEntity) {
-        return produtoService.save(produtoEntity);
+    public ProdutoEntity create(@Valid @RequestBody ProdutoEntity produto) {
+        return produtoService.save(produto);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<ProdutoEntity> update(@PathVariable Long id, @Valid @RequestBody ProdutoEntity produtoEntity) {
+    public ResponseEntity<ProdutoEntity> update(@PathVariable Long id, @Valid @RequestBody ProdutoEntity produto) {
         return produtoService.getIdProduct(id).stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
                 .map(p -> {
-                    p.setQuantidade(produtoEntity.getQuantidade());
-                    p.setItem(produtoEntity.getItem());
-                    p.setMarca(produtoEntity.getMarca());
+                    p.setQuantidade(produto.getQuantidade());
+                    p.setItem(produto.getItem());
+                    p.setMarca(produto.getMarca());
                     ProdutoEntity updated = produtoService.save(p);
                     return ResponseEntity.ok(updated);
                 }).orElseGet(() -> ResponseEntity.notFound().build());

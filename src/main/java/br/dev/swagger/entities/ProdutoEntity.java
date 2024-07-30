@@ -38,5 +38,5 @@ public class ProdutoEntity {
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private UsuarioEntity usuarioEntity;
+    private UsuarioEntity usuario;
 }

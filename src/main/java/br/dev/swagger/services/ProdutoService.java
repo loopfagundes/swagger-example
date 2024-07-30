@@ -32,9 +32,9 @@ public class ProdutoService {
     }
 
     @Transactional
-    public ProdutoEntity save(ProdutoEntity produtoEntity) {
+    public ProdutoEntity save(ProdutoEntity produto) {
         try {
-            return produtoRepository.save(produtoEntity);
+            return produtoRepository.save(produto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
